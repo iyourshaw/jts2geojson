@@ -1,0 +1,10 @@
+.gradle/
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+.cache
+.classpath
+.project
+.settings
+target/
+.vscode/
+.idea/
