@@ -1,8 +1,10 @@
 ## Introduction
 
-JTS to GeoJSON converter.  This is a customized version of the 'jts2geojson' library
-by Björn Harrtell (https://github.com/bjornharrtell/jts2geojson) that adds the ability to serialize/deserialze POJO properties.
-This is a customization of the 'jts2geojson' library to allow the GeoJSON properties to be defined using a POJO class instead of a map, and to define custom feature classes to serialize and deserialize to/from GeoJSON.
+JTS to GeoJSON converter.  This repo (https://github.com/iyourshaw/jts2geojson) contains a customized version of the 
+'jts2geojson' library originally created by Björn Harrtell (https://github.com/bjornharrtell/jts2geojson).
+
+This fork adds the ability to allow the GeoJSON properties to be defined using a POJO class instead of a map, and to 
+define custom feature classes to serialize and deserialize to/from GeoJSON.
 
 This Java library can convert JTS geometries to GeoJSON and back. Its API is similar to other io.* classes in JTS.
 
