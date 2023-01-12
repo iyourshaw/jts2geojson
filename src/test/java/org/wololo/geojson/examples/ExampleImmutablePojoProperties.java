@@ -1,4 +1,4 @@
-package org.wololo.geojson;
+package org.wololo.geojson.examples;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

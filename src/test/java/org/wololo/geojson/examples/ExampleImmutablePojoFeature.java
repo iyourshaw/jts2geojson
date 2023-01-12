@@ -1,8 +1,10 @@
-package org.wololo.geojson;
+package org.wololo.geojson.examples;
 
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.wololo.geojson.BaseFeature;
+import org.wololo.geojson.Point;
 
 /**
  * Example feature class with an immutable properties POJO, Point geometry, and UUID as ID.

@@ -1,3 +1,5 @@
+Original License for jts2geojson incorporated into this code
+
 The MIT License (MIT)
 
 Copyright (c) 2013 Björn Harrtell

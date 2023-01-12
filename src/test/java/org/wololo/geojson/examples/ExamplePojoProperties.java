@@ -1,4 +1,4 @@
-package org.wololo.geojson;
+package org.wololo.geojson.examples;
 
 
 /**
