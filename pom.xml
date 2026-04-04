@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>gov.codot</groupId>
+	<groupId>net.yourshaw</groupId>
 	<artifactId>jts2geojson</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>jar</packaging>
 	<name>jts2geojson</name>
 	<description>JTS to GeoJSON converter.  This is a customized version of the 'jts2geojson' library 
@@ -11,18 +11,12 @@
 
 	<developers>
 		<developer>
-			<id>bjornharrtell</id>
-			<name>Björn Harrtell</name>
-		</developer>
-		<developer>
 			<id>iyourshaw</id>
 			<name>Ivan Yourshaw</name>
 			<organization>Neaera Consulting</organization>
 			<organizationUrl>https://neaeraconsulting.com</organizationUrl>
 		</developer>
 	</developers>
-
-
 
 	<properties>
 		<java.version>11</java.version>
