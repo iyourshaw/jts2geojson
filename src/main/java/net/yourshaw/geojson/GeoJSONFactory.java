@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 
 public class GeoJSONFactory {
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -63,7 +60,7 @@ public class GeoJSONFactory {
     }
     
     private static FeatureCollection readFeatureCollection(JsonNode node)
-            throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
+            throws IOException, ClassNotFoundException {
         Iterator<JsonNode> it = node.get("features").iterator();
         List<Feature> features = new ArrayList<Feature>();
         while (it.hasNext()) {
@@ -75,7 +72,7 @@ public class GeoJSONFactory {
     }
     
     private static Feature readFeature(JsonNode node)
-            throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
+            throws IOException, ClassNotFoundException {
         JsonNode geometryNode = node.get("geometry");
         JavaType javaType = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         Object id = node.get("id");
@@ -87,7 +84,7 @@ public class GeoJSONFactory {
 
      
     private static Geometry readGeometry(JsonNode node)
-            throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
+            throws IOException, ClassNotFoundException {
         if (!node.isNull()) {
             final String type = node.get("type").asText();
             return readGeometry(node, type);
@@ -97,7 +94,7 @@ public class GeoJSONFactory {
     }
 
     private static Geometry readGeometry(JsonNode node, String type)
-            throws JsonParseException, JsonMappingException, IOException, ClassNotFoundException {
+            throws IOException, ClassNotFoundException {
         return (Geometry) mapper.readValue(node.traverse(), Class.forName("net.yourshaw.geojson." + type));
     }
 
