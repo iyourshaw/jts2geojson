@@ -7,6 +7,7 @@ import net.yourshaw.geojson.examples.ExamplePojoProperties;
 
 import java.util.UUID;
 
+import static net.javacrumbs.jsonunit.JsonMatchers.jsonEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -33,9 +34,9 @@ public class BaseFeatureCollectionTest {
 
         final var expected = "{\"type\":\"FeatureCollection\",\"features\":[{\"type\":\"Feature\",\"id\":\"f085e9c9-f1e9-41e7-92f9-a37979c7a23d\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[1.0,1.0]},\"properties\":{\"str\":\"test\",\"idx\":1}},{\"type\":\"Feature\",\"id\":\"f085e9c9-f1e9-41e7-0000-a37979c7a23d\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[2.0,2.0]},\"properties\":{\"str\":\"test2\",\"idx\":2}}]}";
         var json = featureColl.toString();
-        assertThat(expected, equalTo(json));
+        assertThat(expected, jsonEquals(json));
         var createdFeatureColl = GeoJSONFactory.createFeatureCollection(json, ExamplePojoFeatureCollection.class);
         assertThat(createdFeatureColl, instanceOf(ExamplePojoFeatureCollection.class));
-        assertThat(expected, equalTo(createdFeatureColl.toString()));
+        assertThat(expected, jsonEquals(createdFeatureColl.toString()));
     }
 }

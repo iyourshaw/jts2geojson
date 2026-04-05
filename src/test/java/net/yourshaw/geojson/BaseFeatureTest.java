@@ -8,6 +8,7 @@ import net.yourshaw.geojson.examples.ExamplePojoProperties;
 
 import java.util.UUID;
 
+import static net.javacrumbs.jsonunit.JsonMatchers.jsonEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
@@ -24,10 +25,10 @@ public class BaseFeatureTest {
         var feature = new ExamplePojoFeature(id, geometry, properties);
         final var expected = "{\"type\":\"Feature\",\"id\":\"f085e9c9-f1e9-41e7-92f9-a37979c7a23d\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[1.0,1.0]},\"properties\":{\"str\":\"test\",\"idx\":1}}";
         var json = feature.toString();
-        assertThat(expected, equalTo(json));
+        assertThat(expected, jsonEquals(json));
         var createdFeature = GeoJSONFactory.createFeature(json, ExamplePojoFeature.class);
         assertThat(createdFeature, instanceOf(ExamplePojoFeature.class));
-        assertThat(expected, equalTo(createdFeature.toString()));
+        assertThat(expected, jsonEquals(createdFeature.toString()));
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import lombok.Getter;
 
 
 /**
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @param <TGeometry> The geometry type of the feature
  * @param <TProperties> A class containing GeoJSON properties that can be either a Map or a POJO class
  */
+@Getter
 @JsonPropertyOrder({"type", "id", "geometry", "properties"})
 public abstract class BaseFeature<TId, TGeometry extends Geometry, TProperties> 
     extends GeoJSON {
@@ -51,19 +53,4 @@ public abstract class BaseFeature<TId, TGeometry extends Geometry, TProperties>
         this.properties = properties;
     }
 
-    public TId getId() {
-        return id;
-    }
-
-    public TGeometry getGeometry() {
-        return geometry;
-    }
-
-    public TProperties getProperties() {
-        return properties;
-    }
-
-
- 
- 
 }

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.JavaType;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 
 public class GeoJSONFactory {
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -16,7 +16,7 @@ public class GeoJSONFactory {
     public static GeoJSON create(String json) {
         try {
             JsonNode node = mapper.readTree(json);
-            String type = node.get("type").asText();
+            String type = node.get("type").asString();
             if (type.equals("FeatureCollection")) {
                 return readFeatureCollection(node);
             } else if (type.equals("Feature")) {
@@ -38,10 +38,7 @@ public class GeoJSONFactory {
      */
     public static <TFeature extends BaseFeature<?, ?,?>> TFeature createFeature(String json, Class<TFeature> featureType) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode node = mapper.readTree(json);
-            TFeature feature = mapper.readValue(node.traverse(), featureType);
-            return feature;
+            return mapper.readValue(json, featureType);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -50,10 +47,7 @@ public class GeoJSONFactory {
     public static <TFeatureCollection extends BaseFeatureCollection<?>> TFeatureCollection createFeatureCollection(
             String json, Class<TFeatureCollection> featureCollectionType) {
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode node = mapper.readTree(json);
-            TFeatureCollection featureColl = mapper.readValue(node.traverse(), featureCollectionType);
-            return featureColl;
+            return mapper.readValue(json, featureCollectionType);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -68,7 +62,7 @@ public class GeoJSONFactory {
             features.add(readFeature(jFeature));
         }
         
-        return new FeatureCollection(features.toArray(new Feature[features.size()]));
+        return new FeatureCollection(features.toArray(new Feature[0]));
     }
     
     private static Feature readFeature(JsonNode node)
@@ -76,7 +70,8 @@ public class GeoJSONFactory {
         JsonNode geometryNode = node.get("geometry");
         JavaType javaType = mapper.getTypeFactory().constructMapType(Map.class, String.class, Object.class);
         Object id = node.get("id");
-        Map<String, Object> propertyMap = mapper.readValue(node.get("properties").traverse(), javaType);
+        JsonNode propertiesNode = node.get("properties");
+        Map<String, Object> propertyMap = mapper.convertValue(propertiesNode, javaType);
         Properties properties = new Properties(propertyMap);
         Geometry geometry = readGeometry(geometryNode);
         return new Feature(id, geometry, properties);
@@ -86,7 +81,7 @@ public class GeoJSONFactory {
     private static Geometry readGeometry(JsonNode node)
             throws IOException, ClassNotFoundException {
         if (!node.isNull()) {
-            final String type = node.get("type").asText();
+            final String type = node.get("type").asString();
             return readGeometry(node, type);
         } else {
             return null;
@@ -94,8 +89,9 @@ public class GeoJSONFactory {
     }
 
     private static Geometry readGeometry(JsonNode node, String type)
-            throws IOException, ClassNotFoundException {
-        return (Geometry) mapper.readValue(node.traverse(), Class.forName("net.yourshaw.geojson." + type));
+            throws ClassNotFoundException {
+        return (Geometry) mapper.convertValue(node,
+                Class.forName("net.yourshaw.geojson." + type));
     }
 
 }

@@ -8,7 +8,6 @@ import java.util.Map;
  */
 public class Properties extends LinkedHashMap<String, Object> {
 
-
     public Properties() {
     }
 

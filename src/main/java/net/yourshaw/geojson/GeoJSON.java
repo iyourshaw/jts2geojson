@@ -3,7 +3,7 @@ package net.yourshaw.geojson;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
 
 public abstract class GeoJSON {
     private static final ObjectMapper mapper = new ObjectMapper();
@@ -16,7 +16,7 @@ public abstract class GeoJSON {
         try {
             return mapper.writeValueAsString(this);
         } catch (Exception e) {
-            //return String.format("Unhandled exception occured when serializing this instance: %s", e.getMessage());
+            //return String.format("Unhandled exception occurred when serializing this instance: %s", e.getMessage());
             throw new RuntimeException(e);
         } 
     }

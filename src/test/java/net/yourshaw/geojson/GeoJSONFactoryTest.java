@@ -65,7 +65,7 @@ public class GeoJSONFactoryTest {
     @Test
     public void bboxPropertyTest() {
         var geoJSON = "{\"type\": \"FeatureCollection\", \"features\": [{\"type\": \"Feature\", \"id\": 1, \"geometry\": {\"type\": \"Point\", \"coordinates\": [-8.311419016226296, 53.894485921596285], \"bbox\": [-8.311419016226296, 53.894485921596285, -8.311419016226296, 53.894485921596285] }, \"properties\": {\"FID\": 335, \"PLAN_REF\": \"151\", \"APP_TYPE\": \"RETENTION\", \"LOCATION\": \"Knockglass, Ballinameen, Co. Roscommon.\", \"REC_DATE\": \"05/01/2015\", \"DESCRIPT\": \"Of entrance to existing forest plantation for extraction of timber at various times at \", \"APPSTATUS\": \"Application Finalised\", \"DEC_DATE\": \"20/02/2015\", \"DECISION\": \"Granted (Conditional)\", \"APPE_DEC\": \"n/a\", \"APPE_DAT\": \"n/a\", \"MOREINFO\": \"http://www.eplanning.ie/roscommoneplan/FileRefDetails.aspx?file_number=151\", \"WGS_LONG\": \"-8.31141\", \"WGS_LAT\": \"53.89448\"} }] }";
-        var json = GeoJSONFactory.create(geoJSON);
+        GeoJSON json = GeoJSONFactory.create(geoJSON);
         assertThat(json, instanceOf(FeatureCollection.class));
         var fc = (FeatureCollection)json;
         assertThat(fc.getFeatures(), arrayWithSize(greaterThan(0)));
