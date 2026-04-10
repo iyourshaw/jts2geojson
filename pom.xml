@@ -8,7 +8,7 @@
   <version>1.0.0-alpha1</version>
   <packaging>jar</packaging>
 
-  <name>${project.groupId}:${project.artifactId}</name>
+  <name>jts2geojson</name>
   <description>JTS to GeoJSON converter. This is a customized version of the 'jts2geojson' library
     that adds the ability to serialize/deserialze POJO properties.
   </description>
@@ -25,7 +25,7 @@
     <developer>
       <id>iyourshaw</id>
       <name>Ivan Yourshaw</name>
-      <email>jts2geojson@iymaps.com</email>
+      <email>opensource@iymaps.com</email>
       <organization>GitHub</organization>
       <organizationUrl>https://github.com/iyourshaw</organizationUrl>
     </developer>
@@ -33,7 +33,7 @@
 
   <scm>
     <connection>scm:git:git://github.com/iyourshaw/jts2geojson.git</connection>
-    <developerConnection>scm:git:ssh://github.com/iyourshaw/jts2geojson.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/iyourshaw/jts2geojson.git</developerConnection>
     <url>https://github.com/iyourshaw/jts2geojson.git</url>
   </scm>
 
