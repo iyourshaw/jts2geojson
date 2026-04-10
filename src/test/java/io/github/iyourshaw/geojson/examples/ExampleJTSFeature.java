@@ -1,0 +1,16 @@
+package io.github.iyourshaw.geojson.examples;
+
+import io.github.iyourshaw.geojson.BaseJTSFeature;
+import org.locationtech.jts.geom.Point;
+
+/**
+ * Example concrete subclass of {@link BaseJTSFeature} using a JTS Point
+ * geometry and {@link ExamplePojoProperties}.
+ */
+public class ExampleJTSFeature extends BaseJTSFeature<Point, ExamplePojoProperties> {
+
+    public ExampleJTSFeature(Point geometry, ExamplePojoProperties properties) {
+        super(geometry, properties);
+    }
+
+}
