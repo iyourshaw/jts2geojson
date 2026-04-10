@@ -1,22 +1,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.yourshaw</groupId>
+
+    <groupId>com.iymaps</groupId>
 	<artifactId>jts2geojson</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
-	<name>jts2geojson</name>
+
+    <name>${project.groupId}:${project.artifactId}</name>
 	<description>JTS to GeoJSON converter.  This is a customized version of the 'jts2geojson' library 
-		by Björn Harrtell that adds the ability to serialize/deserialze POJO properties.</description>
+		that adds the ability to serialize/deserialze POJO properties.</description>
+    <url>https://github.com/iyourshaw/jts2geojson</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/license/mit</url>
+        </license>
+    </licenses>
 
 	<developers>
 		<developer>
 			<id>iyourshaw</id>
 			<name>Ivan Yourshaw</name>
-			<organization>Neaera Consulting</organization>
-			<organizationUrl>https://neaeraconsulting.com</organizationUrl>
+            <email>opensource@iymaps.com</email>
+			<organization>GitHub</organization>
+			<organizationUrl>https://github.com/iyourshaw</organizationUrl>
 		</developer>
 	</developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/iyourshaw/jts2geojson.git</connection>
+        <developerConnection>scm:git:ssh://github.com/iyourshaw/jts2geojson.git</developerConnection>
+        <url>https://github.com/iyourshaw/jts2geojson.git</url>
+    </scm>
 
 	<properties>
 		<java.version>21</java.version>
@@ -48,16 +65,6 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.21</version>
         </dependency>
-		<dependency>
-			<groupId>commons-beanutils</groupId>
-			<artifactId>commons-beanutils</artifactId>
-			<version>1.11.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>33.5.0-jre</version>
-		</dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -115,6 +122,49 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.12.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadoc</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.8</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
