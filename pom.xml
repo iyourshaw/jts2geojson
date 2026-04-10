@@ -5,7 +5,7 @@
 
   <groupId>io.github.iyourshaw</groupId>
   <artifactId>jts2geojson</artifactId>
-  <version>1.0.0-alpha1</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>jts2geojson</name>
@@ -164,6 +164,12 @@
             <goals>
               <goal>sign</goal>
             </goals>
+            <configuration>
+              <gpgArguments>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+            </configuration>
           </execution>
         </executions>
       </plugin>
