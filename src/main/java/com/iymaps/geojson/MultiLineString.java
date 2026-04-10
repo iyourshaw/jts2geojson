@@ -15,6 +15,7 @@ public class MultiLineString extends Geometry {
     private final double[] bbox;
 
     /**
+     * Creates a MultiLineString with the given coordinates.
      * @param coordinates array of line strings
      */
     public MultiLineString(@JsonProperty("coordinates") double [][][] coordinates) {
@@ -24,6 +25,7 @@ public class MultiLineString extends Geometry {
     }
 
     /**
+     * Creates a MultiLineString with the given coordinates and bounding box.
      * @param coordinates array of line strings
      * @param bbox optional bounding box, or {@code null}
      */

@@ -3,13 +3,18 @@ package com.iymaps.geojson;
 import lombok.Getter;
 
 /**
- * A GeoJSON feature with a JTS geometry
- * Not serializable to JSON without converting to a geojson Feature
+ * A GeoJSON feature with a JTS geometry.
+ * Not serializable to JSON without converting to a geojson Feature.
+ *
+ * @param <TGeometry> the JTS geometry type
+ * @param <TProperties> the properties type
  */
 @Getter
 public abstract class BaseJTSFeature<TGeometry extends org.locationtech.jts.geom.Geometry, TProperties> {
-    
+
+    /** The JTS geometry of this feature. */
     protected TGeometry geometry;
+    /** The properties of this feature. */
     protected TProperties properties;
 
     /**

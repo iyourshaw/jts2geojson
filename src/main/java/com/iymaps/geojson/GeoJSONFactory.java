@@ -9,8 +9,13 @@ import tools.jackson.databind.JavaType;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
+/** Factory for parsing GeoJSON strings into {@link GeoJSON} objects. */
 public class GeoJSONFactory {
     private static final ObjectMapper mapper = new ObjectMapper();
+
+    /** Utility class; not instantiable. */
+    private GeoJSONFactory() {
+    }
 
     /**
      * Parses a GeoJSON string into the appropriate {@link GeoJSON} subtype.

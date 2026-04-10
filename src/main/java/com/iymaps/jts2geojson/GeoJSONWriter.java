@@ -9,6 +9,10 @@ import com.iymaps.geojson.Feature;
 /** Converts JTS {@link org.locationtech.jts.geom.Geometry} objects to GeoJSON model objects. */
 public class GeoJSONWriter {
 
+    /** Creates a new GeoJSONWriter. */
+    public GeoJSONWriter() {
+    }
+
     final static GeoJSONReader reader = new GeoJSONReader();
         
     /**

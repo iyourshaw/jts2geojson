@@ -15,6 +15,7 @@ public class LineString extends Geometry {
     private final double[] bbox;
 
     /**
+     * Creates a LineString with the given coordinates.
      * @param coordinates array of positions
      */
     public LineString(@JsonProperty("coordinates") double [][] coordinates) {
@@ -24,6 +25,7 @@ public class LineString extends Geometry {
     }
 
     /**
+     * Creates a LineString with the given coordinates and bounding box.
      * @param coordinates array of positions
      * @param bbox optional bounding box, or {@code null}
      */

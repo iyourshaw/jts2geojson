@@ -15,6 +15,7 @@ public class MultiPoint extends Geometry {
     private final double[] bbox;
 
     /**
+     * Creates a MultiPoint with the given coordinates.
      * @param coordinates array of positions
      */
     public MultiPoint(@JsonProperty("coordinates") double [][] coordinates) {
@@ -24,6 +25,7 @@ public class MultiPoint extends Geometry {
     }
 
     /**
+     * Creates a MultiPoint with the given coordinates and bounding box.
      * @param coordinates array of positions
      * @param bbox optional bounding box, or {@code null}
      */

@@ -25,21 +25,30 @@ public abstract class GeoJSON {
     }
 
     /**
-     * Override with the name to be used as the type attribute in 
+     * Override with the name to be used as the type attribute in
      * the generated GeoJSON for the element.
-     * 
+     *
+     * @return the GeoJSON type string (e.g. {@code "Point"}, {@code "Feature"})
      */
     @JsonIgnore
     protected abstract String getGeoJSONType();
 
 
-    /** Returns the GeoJSON type name used in the {@code "type"} field. */
+    /**
+     * Returns the GeoJSON type name used in the {@code "type"} field.
+     *
+     * @return the GeoJSON type string
+     */
     @JsonProperty("type")
     public String getType() {
         return getGeoJSONType();
     }
 
-    /** No-op; the {@code "type"} field is not deserializable. */
+    /**
+     * No-op; the {@code "type"} field is not deserializable.
+     *
+     * @param type ignored
+     */
     @JsonIgnore
     public void setType(String type) {
         // Does nothing, to make type not deserializable

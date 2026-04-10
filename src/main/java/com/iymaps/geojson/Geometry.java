@@ -7,6 +7,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+/**
+ * Base type for all GeoJSON geometry objects. Subtypes: {@link Point}, {@link LineString},
+ * {@link Polygon}, {@link MultiPoint}, {@link MultiLineString}, {@link MultiPolygon},
+ * {@link GeometryCollection}. Deserialized by the {@code "type"} field.
+ */
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.EXISTING_PROPERTY,
@@ -23,12 +28,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   @JsonSubTypes.Type(value=FeatureCollection.class, name="FeatureCollection"  ),
   @JsonSubTypes.Type(value=GeometryCollection.class, name="GeometryCollection"  )
 } )
-
-/**
- * Base type for all GeoJSON geometry objects. Subtypes: {@link Point}, {@link LineString},
- * {@link Polygon}, {@link MultiPoint}, {@link MultiLineString}, {@link MultiPolygon},
- * {@link GeometryCollection}. Deserialized by the {@code "type"} field.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({"type", "coordinates", "bbox"})
 public abstract class Geometry extends GeoJSON {

@@ -14,6 +14,7 @@ public class GeometryCollection extends Geometry {
     private final Geometry[] geometries;
 
     /**
+     * Creates a GeometryCollection with the given geometries.
      * @param geometries the geometries in this collection
      */
     @JsonCreator

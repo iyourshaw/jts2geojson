@@ -15,7 +15,13 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.LinearRing;
 import org.locationtech.jts.geom.PrecisionModel;
 
+/** Converts GeoJSON strings and objects to JTS {@link Geometry} objects. */
 public class GeoJSONReader {
+
+    /** Creates a new GeoJSONReader. */
+    public GeoJSONReader() {
+    }
+
     final static GeometryFactory FACTORY = new GeometryFactory(
             new PrecisionModel(PrecisionModel.FLOATING));
 

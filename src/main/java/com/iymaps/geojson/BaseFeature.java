@@ -25,9 +25,12 @@ public abstract class BaseFeature<TId, TGeometry extends Geometry, TProperties>
         return "Feature";
     }
 
+    /** The feature id, or {@code null} if absent. */
     @JsonInclude(Include.NON_EMPTY)
     protected final TId id;
+    /** The feature geometry. */
     protected final TGeometry geometry;
+    /** The feature properties. */
     protected final TProperties properties;
 
     /**

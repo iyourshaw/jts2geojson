@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class FeatureCollection extends BaseFeatureCollection<Feature> {
 
     /**
+     * Creates a FeatureCollection with the given features.
      * @param features the features in this collection
      */
     @JsonCreator

@@ -15,6 +15,7 @@ public class MultiPolygon extends Geometry {
     private final double[] bbox;
 
     /**
+     * Creates a MultiPolygon with the given coordinates.
      * @param coordinates array of polygons
      */
     public MultiPolygon(@JsonProperty("coordinates") double [][][][] coordinates) {
@@ -24,6 +25,7 @@ public class MultiPolygon extends Geometry {
     }
 
     /**
+     * Creates a MultiPolygon with the given coordinates and bounding box.
      * @param coordinates array of polygons
      * @param bbox optional bounding box, or {@code null}
      */

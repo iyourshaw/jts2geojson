@@ -18,6 +18,7 @@ public class Polygon extends Geometry {
     private final double[] bbox;
 
     /**
+     * Creates a Polygon with the given coordinate rings.
      * @param coordinates array of rings; first is exterior, rest are holes
      */
     public Polygon(@JsonProperty("coordinates") double [][][] coordinates) {
@@ -27,6 +28,7 @@ public class Polygon extends Geometry {
     }
 
     /**
+     * Creates a Polygon with the given coordinate rings and bounding box.
      * @param coordinates array of rings; first is exterior, rest are holes
      * @param bbox optional bounding box, or {@code null}
      */

@@ -29,6 +29,7 @@ public class Point extends Geometry {
     }
 
     /**
+     * Creates a Point with the given coordinates.
      * @param coordinates position as {@code [longitude, latitude]}
      *                    or {@code [longitude, latitude, elevation]}
      */
@@ -39,6 +40,7 @@ public class Point extends Geometry {
     }
 
     /**
+     * Creates a Point with the given coordinates and bounding box.
      * @param coordinates position as {@code [longitude, latitude]}
      *                    or {@code [longitude, latitude, elevation]}
      * @param bbox optional bounding box, or {@code null}
