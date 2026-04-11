@@ -8,18 +8,15 @@ import java.util.Map;
  */
 public class Properties extends LinkedHashMap<String, Object> {
 
-    /** Creates an empty properties map. */
-    public Properties() {
-    }
+  /** Creates an empty properties map. */
+  public Properties() {}
 
-    /**
-     * Creates a properties map pre-populated from the given map.
-     * @param propertyMap initial properties
-     */
-    public Properties(Map<String, Object> propertyMap) {
-        this();
-        putAll(propertyMap);
-    }
-
-
+  /**
+   * Creates a properties map pre-populated from the given map.
+   * @param propertyMap initial properties
+   */
+  public Properties(Map<String, Object> propertyMap) {
+    this();
+    putAll(propertyMap);
+  }
 }

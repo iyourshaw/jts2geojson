@@ -6,8 +6,8 @@ import io.github.iyourshaw.geojson.BaseFeatureCollection;
 
 public class ExamplePojoFeatureCollection extends BaseFeatureCollection<ExamplePojoFeature> {
 
-    @JsonCreator
-    public ExamplePojoFeatureCollection(@JsonProperty("features") ExamplePojoFeature[] features) {
-        super(features);
-    }
+  @JsonCreator
+  public ExamplePojoFeatureCollection(@JsonProperty("features") ExamplePojoFeature[] features) {
+    super(features);
+  }
 }

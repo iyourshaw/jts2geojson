@@ -9,8 +9,7 @@ import org.locationtech.jts.geom.Point;
  */
 public class ExampleJTSFeature extends BaseJTSFeature<Point, ExamplePojoProperties> {
 
-    public ExampleJTSFeature(Point geometry, ExamplePojoProperties properties) {
-        super(geometry, properties);
-    }
-
+  public ExampleJTSFeature(Point geometry, ExamplePojoProperties properties) {
+    super(geometry, properties);
+  }
 }

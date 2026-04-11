@@ -11,30 +11,28 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({"type", "id", "geometry", "properties"})
 public class Feature extends BaseFeature<Object, Geometry, Properties> {
 
-    /**
-     * Creates a feature with no id.
-     * @param geometry the feature geometry
-     * @param properties the feature properties
-     */
-    public Feature(
-            @JsonProperty("geometry") Geometry geometry,
-            @JsonProperty("properties") Properties properties) {
-        super(geometry, properties);
-    }
+  /**
+   * Creates a feature with no id.
+   * @param geometry the feature geometry
+   * @param properties the feature properties
+   */
+  public Feature(
+      @JsonProperty("geometry") Geometry geometry,
+      @JsonProperty("properties") Properties properties) {
+    super(geometry, properties);
+  }
 
-    /**
-     * Creates a feature with an id.
-     * @param id the feature id
-     * @param geometry the feature geometry
-     * @param properties the feature properties
-     */
-    @JsonCreator
-    public Feature(
-            @JsonProperty("id") Object id,
-            @JsonProperty("geometry") Geometry geometry,
-            @JsonProperty("properties") Properties properties) {
-        super(id, geometry, properties);
-    }
-
- 
+  /**
+   * Creates a feature with an id.
+   * @param id the feature id
+   * @param geometry the feature geometry
+   * @param properties the feature properties
+   */
+  @JsonCreator
+  public Feature(
+      @JsonProperty("id") Object id,
+      @JsonProperty("geometry") Geometry geometry,
+      @JsonProperty("properties") Properties properties) {
+    super(id, geometry, properties);
+  }
 }

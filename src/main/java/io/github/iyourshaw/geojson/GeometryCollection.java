@@ -11,16 +11,15 @@ import lombok.Setter;
 @Setter
 @JsonPropertyOrder({"type", "geometries"})
 public class GeometryCollection extends Geometry {
-    private final Geometry[] geometries;
+  private final Geometry[] geometries;
 
-    /**
-     * Creates a GeometryCollection with the given geometries.
-     * @param geometries the geometries in this collection
-     */
-    @JsonCreator
-    public GeometryCollection(@JsonProperty("geometries") Geometry[] geometries) {
-        super();
-        this.geometries = geometries;
-    }
-
+  /**
+   * Creates a GeometryCollection with the given geometries.
+   * @param geometries the geometries in this collection
+   */
+  @JsonCreator
+  public GeometryCollection(@JsonProperty("geometries") Geometry[] geometries) {
+    super();
+    this.geometries = geometries;
+  }
 }

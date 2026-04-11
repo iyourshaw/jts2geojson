@@ -16,21 +16,20 @@ import lombok.Getter;
 @JsonPropertyOrder({"type", "features"})
 public abstract class BaseFeatureCollection<TFeature extends BaseFeature<?, ?, ?>> extends GeoJSON {
 
-    @Override
-    public String getGeoJSONType() {
-        return "FeatureCollection";
-    }
+  @Override
+  public String getGeoJSONType() {
+    return "FeatureCollection";
+  }
 
-    private final TFeature[] features;
-    
-    /**
-     * Creates a collection with the given features.
-     * @param features the features in this collection
-     */
-    @JsonCreator
-    public BaseFeatureCollection(@JsonProperty("features") TFeature[] features) {
-        super();
-        this.features = features;
-    }
+  private final TFeature[] features;
 
+  /**
+   * Creates a collection with the given features.
+   * @param features the features in this collection
+   */
+  @JsonCreator
+  public BaseFeatureCollection(@JsonProperty("features") TFeature[] features) {
+    super();
+    this.features = features;
+  }
 }
